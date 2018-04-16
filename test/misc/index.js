@@ -504,4 +504,31 @@ describe('misc', () => {
 				);
 			});
 	});
+
+	it('Removes unused nodes from internal imports', () => {
+		return rollup
+			.rollup({
+				input: 'main',
+				experimentalPreserveModules: true,
+				plugins: [
+					loader({
+						main: `import { a } from 'one';\nwindow.APP = { a };`,
+						one: `export { default as a } from 'two';\nexport { default as b } from 'three';`,
+						two: `export default {};`,
+						three: `export default {};`
+					})
+				]
+			})
+			.then(bundle => {
+				return bundle.generate({
+					format: 'es'
+				});
+			})
+			.then(out => {
+				const entries = Object.entries(out);
+				const oneEntry = entries.filter(e => e[1].modules[0] === 'one')[0][1];
+
+				assert.equal(oneEntry.imports.length, 1, 'This now only depends on the used import');
+			})
+	});
 });
