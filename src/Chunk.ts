@@ -1025,7 +1025,7 @@ export default class Chunk {
 			const dep = this.dependencies[i];
 			if (dep instanceof ExternalModule) continue;
 			let relPath = normalize(relative(dirname(this.id), dep.id));
-			if (!relPath.startsWith('../')) relPath = './' + relPath;
+			//if (!relPath.startsWith('../')) relPath = './' + relPath;
 			this.renderedDeclarations.dependencies[i].id = relPath;
 		}
 

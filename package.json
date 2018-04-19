@@ -1,5 +1,5 @@
 {
-  "name": "rollup",
+  "name": "steal-rollup",
   "version": "0.58.0",
   "description": "Next-generation ES6 module bundler",
   "main": "dist/rollup.js",
