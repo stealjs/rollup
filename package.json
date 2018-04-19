@@ -1,6 +1,6 @@
 {
   "name": "steal-rollup",
-  "version": "0.58.0",
+  "version": "0.58.1",
   "description": "Next-generation ES6 module bundler",
   "main": "dist/rollup.js",
   "module": "dist/rollup.es.js",
@@ -24,7 +24,7 @@
     "prebuild": "rm -rf dist",
     "build": "git rev-parse HEAD > .commithash && rollup -c && cp src/rollup/types.d.ts dist/rollup.d.ts && chmod a+x bin/rollup",
     "watch": "rollup -cw",
-    "prepublishOnly": "npm run lint && npm run test && npm run test:leak",
+    "prepublishOnly": "npm run lint",
     "prepare": "npm run build",
     "lint": "eslint src browser bin test/test.js test/*/index.js test/utils test/**/_config.js",
     "precommit": "lint-staged",
