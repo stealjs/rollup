@@ -210,6 +210,8 @@ export interface OutputOptions {
 	// deprecated
 	dest?: string;
 	moduleId?: string;
+
+	resolveImports: (depChunk: any, chunk: any) => string;
 }
 
 export interface OutputOptionsFile extends OutputOptions {

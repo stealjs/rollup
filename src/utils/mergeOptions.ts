@@ -10,7 +10,9 @@ const createGetOption = (config: GenericConfigObject, command: GenericConfigObje
 ) =>
 	command[name] !== undefined
 		? command[name]
-		: config[name] !== undefined ? config[name] : defaultValue;
+		: config[name] !== undefined
+			? config[name]
+			: defaultValue;
 
 const normalizeObjectOptionValue = (optionValue: any) => {
 	if (!optionValue) {
@@ -261,7 +263,8 @@ function getOutputOptions(
 		paths: getOption('paths'),
 		sourcemap: getOption('sourcemap'),
 		sourcemapFile: getOption('sourcemapFile'),
-		strict: getOption('strict', true)
+		strict: getOption('strict', true),
+		resolveImports: getOptions('resolveImports')
 	};
 }
 
