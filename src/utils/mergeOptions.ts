@@ -264,7 +264,7 @@ function getOutputOptions(
 		sourcemap: getOption('sourcemap'),
 		sourcemapFile: getOption('sourcemapFile'),
 		strict: getOption('strict', true),
-		resolveImports: getOptions('resolveImports')
+		resolveImports: getOption('resolveImports')
 	};
 }
 
