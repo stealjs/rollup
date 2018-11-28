@@ -530,6 +530,7 @@ export default class Chunk {
 				}
 			} else if (es) {
 				safeName = getSafeName(variable.name);
+				toDeshadow.add(safeName);
 			} else {
 				safeName = `${(<Module>module).chunk.name}.${module.chunk.getVariableExportName(variable)}`;
 			}
